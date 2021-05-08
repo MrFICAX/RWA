@@ -1,4 +1,4 @@
-import { interval, Observable, range, Subject } from "rxjs";
+import { interval, Observable, range, Subject, Subscriber } from "rxjs";
 //import { filter, map, take, takeUntil } from "rxjs/operators";
 import { Prognoza } from "./Prognoza";
 
@@ -14,7 +14,7 @@ let NIzLokacija: string[] = [
 ];
 
 const subjectA = new Subject();
-CrtajKontrole();
+CrtajKontrole(PokreniUnos);
 
 let SavTekst = document.body.querySelector(".tekst");
 
@@ -50,11 +50,11 @@ subjectA.subscribe((data: Prognoza) => {
 // subscriber 4
 subjectA.subscribe((data: Prognoza) => {
   console.log("SUBSCRIBER 4");
-  console.log("Datum je: " + data.getDatum().toLocaleString());
+  console.log("Datum je: " + data.datum.toLocaleString());
 
   SavTekst.innerHTML += "SUBSCRIBER 4 <br>";
   SavTekst.innerHTML +=
-    "Datum je: " + data.getDatum().toLocaleString() + "<br>";
+    "Datum je: " + data.datum.toLocaleString() + "<br>";
   SavTekst.innerHTML +=
     "____________________________________________________________ <br> <br>";
 });
@@ -68,7 +68,8 @@ function PokreniUnos(uneto: number, granica: number) {
       break;
     }
     console.log(x);
-    SavTekst.innerHTML += "NOVA VREMENSKA PROGNOZA!!! <br> Redni broj: "+x+"<br>";
+    SavTekst.innerHTML +=
+      "NOVA VREMENSKA PROGNOZA!!! <br> Redni broj: " + x + "<br>";
 
     subjectA.next(
       new Prognoza(
@@ -81,7 +82,7 @@ function PokreniUnos(uneto: number, granica: number) {
   }
 }
 
-function CrtajKontrole() {
+function CrtajKontrole(clickHandler: Function) {
   let labela = document.createElement("label");
   labela.innerHTML = "Unesite broj iteracija";
   document.body.appendChild(labela);
@@ -107,7 +108,8 @@ function CrtajKontrole() {
     let granica = parseInt(numGranicaBox.value);
     let uneto = parseInt(numBox.value);
     if (uneto > 0) {
-      PokreniUnos(uneto, granica);
+      clickHandler(uneto, granica);
+      //PokreniUnos(uneto, granica);
       alert("Proveri konzolu!");
     } else alert("Niste uneli validne podakte");
   };
@@ -122,23 +124,24 @@ function CrtajKontrole() {
   labela = document.createElement("label");
   divElement.appendChild(labela);
   labela.className = "tekst";
-  labela.innerHTML = "____________________________________________________________<br>";
+  labela.innerHTML =
+    "____________________________________________________________<br>";
 }
 
-//   const observable = Rx.Observable.create((observer: Subject<unknown>) => {
-//     observer.next(Math.random());
-// });
+  const observable = new Observable((observer: Subscriber<number>) => {
+    observer.next(Math.random());
+});
 
-// const subjectB = new Rx.Subject();
+const subjectB = new Subject();
 
-// // subscriber 1
-// subjectB.subscribe((data) => {
-//     console.log(data); // 0.24957144215097515 (random number)
-// });
+// subscriber 1
+subjectB.subscribe((data) => {
+    console.log(data); // 0.24957144215097515 (random number)
+});
 
-// // subscriber 2
-// subjectB.subscribe((data) => {
-//     console.log(data); // 0.24957144215097515 (random number)
-// });
+// subscriber 2
+subjectB.subscribe((data) => {
+    console.log(data); // 0.24957144215097515 (random number)
+});
 
-// observable.subscribe(subjectB);
+observable.subscribe(subjectB);
