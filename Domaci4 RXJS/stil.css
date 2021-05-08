@@ -1,0 +1,40 @@
+body {
+    background-color: burlywood;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: oblique;
+    color: brown;
+}
+div{
+    margin: 5px;
+}
+.l1, .l2, .l3{
+    text-align: center;
+    margin: 10px;
+    background-color: green;
+
+    border: 3px solid black;
+    padding: 20px;
+}
+.labela{
+    text-align: center;
+    margin: 10px;
+
+    padding: 20px;
+}
+.div1{
+    display: flex;
+    justify-content: center;
+}
+.Naslov{
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid black;
+  }
+table {
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 100%;
+    border-collapse: collapse;
+  }

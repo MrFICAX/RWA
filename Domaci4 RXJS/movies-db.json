@@ -1,0 +1,54 @@
+{
+    "students":[
+        {
+            "id":1,
+            "name":"Stefan Markovic",
+            "year":2000,
+            "avgMark":9.5
+        },
+        {
+            "id":2,
+            "name":"Marko Markovic",
+            "year":1999,
+            "avgMark":8
+        },
+        {
+            "id":3,
+            "name":"Ana Markovic",
+            "year":2001,
+            "avgMark":6.8
+        },
+        {
+            "id":4,
+            "name":"Ivan Stankovic",
+            "year":1998,
+            "avgMark":9.7
+        },
+        {
+            "id":5,
+            "name":"Stefan Markovic",
+            "year":2002,
+            "avgMark":8.7
+        },
+        {
+            "id":6,
+            "name":"Dusan Stojakovic",
+            "year":1999,
+            "avgMark":8.7
+        },
+        {
+            "id":7,
+            "name":"Sretko Sretkovic",
+            "year":1997,
+            "avgMark":9.6
+        },
+        {
+            "id":8,
+            "name":"Milica Milenkovic",
+            "year":1999,
+            "avgMark":10.0
+        }
+        
+    ],
+    "actors":[]
+}
