@@ -1,0 +1,82 @@
+{
+    "drivers":[
+        {
+            "id":1,
+            "name":"Stefan Markovic",
+            "car":"Volkswagen Passat B8",
+            "avgMark": 8.2,
+            "priceCoefficient":4
+        },
+        {
+            "id":2,
+            "name":"Marko Markovic",
+            "car":"Audi A4",
+            "avgMark": 8.1,
+            "priceCoefficient": 3.5
+        },
+        {
+            "id":3,
+            "name":"Ana Markovic",
+            "car":"Bugatti Chiron",
+            "avgMark": 9.0,
+            "priceCoefficient":8
+        },
+        {
+            "id":4,
+            "name":"Ivan Stankovic",
+            "car":"Audi A4",
+            "avgMark": 7.2,
+            "priceCoefficient":3.2
+        },
+        {
+            "id":5,
+            "name":"Stefan Markovic",
+            "car":"Bugatti Chiron",
+            "avgMark": 9.1,
+            "priceCoefficient":10
+        },
+        {
+            "id":6,
+            "name":"Dusan Stojakovic",
+            "car":"Volkswagen Passat B8",
+            "avgMark": 8.5,
+            "priceCoefficient":4.2
+        },
+        {
+            "id":7,
+            "name":"Sretko Sretkovic",
+            "car":"Volkswagen Passat B8",
+            "avgMark": 8.7,
+            "priceCoefficient":4.3
+        },
+        {
+            "id":8,
+            "name":"Milica Milenkovic",
+            "car":"Audi A4",
+            "avgMark": 6.5,
+            "priceCoefficient":4.3
+        },
+        {
+            "id":9,
+            "name":"Dusan Stojakovic",
+            "car":"Bugatti Chiron",
+            "avgMark": 8.6,
+            "priceCoefficient":10.5
+        },
+        {
+            "id":10,
+            "name":"Sretko Sretkovic",
+            "car":"Audi A4",
+            "avgMark": 7.6,
+            "priceCoefficient":9.6
+        },
+        {
+            "id":11,
+            "name":"Marko Milenkovic",
+            "car":"Bugatti Chiron",
+            "avgMark": 9.9,
+            "priceCoefficient":11.0
+        }
+        
+    ]
+}
