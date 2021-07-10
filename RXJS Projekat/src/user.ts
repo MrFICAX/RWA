@@ -1,11 +1,11 @@
 export class User{
     private _name:string;
-    private _surname:string;
+    private _address:string;
     private _iDCard:number;
 
-    constructor(Iname:string, surname:string, idCard:number){
+    constructor(Iname:string, address:string, idCard:number){
         this.name = Iname;
-        this.surname = surname;
+        this.address = address;
         this.idcard = idCard;
     }
 
@@ -16,11 +16,11 @@ export class User{
         return this._name;
     }
 
-    set surname(vrednost:string){
-        this._surname = vrednost;
+    set address(vrednost:string){
+        this._address = vrednost;
     }
-    get surname():string{
-        return this._surname;
+    get address():string{
+        return this._address;
     }
 
     set idcard(vrednost:number){
@@ -33,7 +33,7 @@ export class User{
     checkInputs():boolean {
         console.log(this);
         
-        if(this.name===undefined || this.surname ===undefined || this.idcard === 0)
+        if(this.name===undefined || this.address ===undefined || this.idcard === 0)
             return false;
         return true;
     }

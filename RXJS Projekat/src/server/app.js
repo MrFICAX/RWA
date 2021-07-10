@@ -5,11 +5,12 @@
 const fs = require('fs');
 const express = require('express');
 
-
 const app = express();
 //import cors from 'cors';
 const cors = require('cors');
 const port = 3000;
+const location = 'D://ELFAK Filip//VI SEMESTAR//Razvoj Web aplikacija//Repozitorijum//RWA//RXJS Projekat//pictures//';
+
 
 app.use(cors({
     origin: ['http://127.0.0.1:5501', 'http://127.0.0.1:3000']
@@ -65,6 +66,48 @@ app.get('/drivers/:carName?', (request, response) => { //http://localhost:3000/p
                 );
             response.send(newArray);
         });
+});
+
+app.get('/photos/:carName?', (request, response) => { //http://localhost:3000/products/3 ruta za poziv ove metode
+  var newArray;
+  const Parameters = request.params;
+  //let fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
+  const CarInput = Parameters.carName;
+
+  var files = fs.readdirSync(location + CarInput);
+  files.forEach((element, index) => {
+    const x = "pictures//" + CarInput +"//"+ element;
+    console.log(x);
+    files[index] = x;
+  })
+  console.log(files);
+  response.send(files);
+
+});
+
+app.get('/cars', (request, response) => { //http://localhost:3000/products/3 ruta za poziv ove metode
+  const newArray = [];
+  const Parameters = request.params;
+  let fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
+
+  readJSONFile('taxi_drivers.json', function (err, json) {
+              if(err) 
+                  { throw err; }  
+
+              var drivers = json.drivers;
+              drivers.forEach(element => {
+                newArray.push(element.car);
+              });
+              console.log(newArray);
+              let uniqueChars = [...new Set(newArray)];
+
+            console.log(uniqueChars);  
+            //   newArray.filter((item, pos) => {
+            //     newArray.indexOf(item) == pos;
+            // })
+            //   console.log(newArray);
+          response.send(uniqueChars);
+      });
 });
 
 app.listen(port, () => {

@@ -89,8 +89,8 @@ var element = document.body.getElementsByClassName("DataViewDiv")[0];
   createH4(user.name, inputDiv);
   //WriteLabel(user.name, inputDiv);
   //WriteLabel("Vase prezime:", inputDiv);
-  createH3("Vase prezime:", inputDiv);
-  createH4(user.surname, inputDiv);
+  createH3("Adresa na kojoj taksi dolazi po vas:", inputDiv);
+  createH4(user.address, inputDiv);
   //WriteLabel(user.surname, inputDiv);
   //WriteLabel("Broj licne karte:", inputDiv);
   createH3("Broj licne karte:", inputDiv);
@@ -156,7 +156,7 @@ function createSurNameBox(element:HTMLElement) {
     // element.appendChild(inputDiv);
 
     const label = document.createElement("label");
-    label.innerHTML = "Unesite vase prezime:";
+    label.innerHTML = "Unesite adresu na koju dolazi taksi:";
     label.style.margin = "10px";
     element.appendChild(label);
 
@@ -180,7 +180,7 @@ function createSurNameBox(element:HTMLElement) {
     .subscribe((surname: string) => {
       console.log(surname);
       //student = student.filter(p => p.avgMark > 9);
-      user.surname = surname;
+      user.address = surname;
       var x = document.body.getElementsByClassName("UserFormDiv")[0];
       if(x!== undefined)
         createUserDataView(x);
@@ -227,6 +227,10 @@ function createIDCardBox(element:HTMLElement){
 }
 
 function createTaxiLogic() {
+  var element = document.getElementsByClassName("TaxiLogicDiv")[0];
+  if(element !== undefined)
+      return;
+
   const TaxiLogicDiv = document.createElement("div");
   TaxiLogicDiv.className = "TaxiLogicDiv";
   document.body.appendChild(TaxiLogicDiv);

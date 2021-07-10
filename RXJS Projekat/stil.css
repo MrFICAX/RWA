@@ -42,11 +42,39 @@ h1{
 }
 
 .inputID, .inputSurname, .inputName {
-    width: 30%;
+    width: 40%;
+    font-family: Impact, fantasy;
+    font-size: 20px;
 }
-
+.dugmeUTabeli{
+    background-color: #4CAF50;
+    border:2px solid chartreuse;
+    display: table-cell;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 9px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    height: 35px; 
+    width: 250px; 
+}
+.dugmeUTabeli:hover{
+    background-color: chartreuse;
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 .input{
     width: 20%;
+    font-family: Impact, fantasy;
+    font-size: 20px;
+}
+.selekcija{
+    width: 20%;
+    font-family: Impact, fantasy;
+    font-size: 20px;
 
 }
 .TaxiLogicDiv, table{
@@ -54,11 +82,12 @@ h1{
     margin: -10px;
     text-align: center;
     font-size: 25px;
+    padding-bottom: 80px;
 }
 .TaxiLogic{
 
     display: flex;
-    height: 30px;
+
     margin: 10px;
     padding: 20px;
     justify-content: space-around;
@@ -66,20 +95,7 @@ h1{
     align-content: center;
     align-items: center;
 }
-.l1, .l2, .l3{
-    text-align: center;
-    margin: 10px;
-    background-color: green;
 
-    border: 3px solid black;
-    padding: 20px;
-}
-.labela{
-    text-align: center;
-    margin: 10px;
-
-    padding: 20px;
-}
 .div1{
     display: flex;
     justify-content: center;
@@ -89,13 +105,21 @@ h1{
 }
 table, th, td {
     border: 1px solid black;
-  }
+}
 table {
-
     width: 100%;
     border-collapse: collapse;
-  }
-
- h4, h5{
+}
+h4, h5{
      margin: 20px;
- } 
+} 
+.image{
+    border: ridge 10px rgb(108, 177, 4);
+    width: 400px;
+    height: 200px;
+}
+.image:hover {
+    opacity: 90%;
+    border: ridge 15px rgb(108, 177, 4);
+}
+    
