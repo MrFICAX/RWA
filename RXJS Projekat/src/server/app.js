@@ -42,25 +42,27 @@ app.get('/', (request, response) => { //http://localhost:3000/ ruta za poziv ove
 
 });
 
-app.get('/students/:year?', (request, response) => { //http://localhost:3000/products/3 ruta za poziv ove metode
+app.get('/drivers/:carName?', (request, response) => { //http://localhost:3000/products/3 ruta za poziv ove metode
     var newArray;
     const Parameters = request.params;
     let fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
-    console.log(Parameters.year);
-    const YearInput = parseFloat(Parameters.year);
-    console.log(YearInput);
+    console.log(Parameters.carName);
+    const CarInput = Parameters.carName;
+    console.log(CarInput);
     readJSONFile('taxi_drivers.json', function (err, json) {
                 if(err) 
                     { throw err; }  
 
-                var students = json.students;
-                console.log(students);
-                newArray = students.filter(function (el)
+                var drivers = json.drivers;
+               // console.log(drivers);
+                newArray = drivers.filter(function (el)
                     {
-                        return el.year >= YearInput;
+                      console.log(CarInput);
+                      console.log(el.car);
+
+                        return el.car == CarInput;
                     }
                 );
-            console.log(students);
             response.send(newArray);
         });
 });
@@ -74,15 +76,15 @@ app.listen(port, () => {
 function readJSONFile(filename, callback) {
   fs.readFile(filename, function (err, data) {
     if(err) {
-        console.log("GRESKA KOD CITANJA");
+        console.log("ERROR WHILE READING");
       callback(err);
       return;
     }
     try {
-        console.log("POKUSAVAM CITANJE");
+        console.log("STARTED TO READ");
       callback(null, JSON.parse(data));
     } catch(exception) {
-        console.log("EXCEPTION KOD CITANJA");
+        console.log("EXCEPTION WHILE READING");
       callback(exception);
     }
   });
