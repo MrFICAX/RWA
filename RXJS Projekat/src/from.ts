@@ -15,12 +15,14 @@ import { User } from "./user";
 
 const API_URL = "http://localhost:3000";
 var counter = 0;
+var taxilogic:TaxiLogic;
 const user = new User(undefined,undefined, 0);
-const taxilogic = new TaxiLogic(undefined, undefined);
+// const taxilogic = new TaxiLogic(undefined, undefined);
 
 
 createHeader();
 createUserForm();
+createReservations();
 
 
 //createNameBox(docu);
@@ -98,15 +100,7 @@ var element = document.body.getElementsByClassName("DataViewDiv")[0];
   //WriteLabel(user.idcard.toString(), inputDiv);
 }
 
-function WriteLabel(params:string, element:HTMLElement) {
-  const label = document.createElement("label");
-  if(params === undefined || parseInt(params) === 0)
-    label.innerHTML = "Niste uneli ovaj podatak";
-  else
-    label.innerHTML = params;
-    label.style.margin = "10px";
-    element.appendChild(label);
-}
+
 function createInputDiv(element:HTMLElement) {
   const inputDiv = document.createElement("div");
   inputDiv.className = "inputDiv";
@@ -126,7 +120,6 @@ function createNameBox(element:HTMLElement) {
   const input = document.createElement("input");
   input.type = "text";
   input.className = "inputName";
-  input.id = "input";
   element.appendChild(input);
   fromEvent(input, "input")
     .pipe(
@@ -140,7 +133,7 @@ function createNameBox(element:HTMLElement) {
       //map(movies => movies[0])
     )
     .subscribe((name: string) => {
-      console.log(name);
+      //console.log(name);
       //student = student.filter(p => p.avgMark > 9);
       user.name = name;
       var x = document.body.getElementsByClassName("UserFormDiv")[0];
@@ -163,7 +156,6 @@ function createSurNameBox(element:HTMLElement) {
     const input = document.createElement("input");
     input.className = "inputSurname";
     input.type = "text";
-    input.id = "input";
     element.appendChild(input);
 
     fromEvent(input, "input")
@@ -178,7 +170,7 @@ function createSurNameBox(element:HTMLElement) {
       //map(movies => movies[0])
     )
     .subscribe((surname: string) => {
-      console.log(surname);
+      //console.log(surname);
       //student = student.filter(p => p.avgMark > 9);
       user.address = surname;
       var x = document.body.getElementsByClassName("UserFormDiv")[0];
@@ -214,29 +206,41 @@ function createIDCardBox(element:HTMLElement){
       //map(movies => movies[0])
     )
     .subscribe((id: number) => {
-      console.log(id);
+      //console.log(id);
       //student = student.filter(p => p.avgMark > 9);
       user.idcard = id;
       var x = document.body.getElementsByClassName("UserFormDiv")[0];
       if(x!== undefined)
         createUserDataView(x);
-      if(user.checkInputs())
+      if(user.checkInputs()){
+
+      
         createTaxiLogic();  
+      }
       
     });
 }
 
 function createTaxiLogic() {
   var element = document.getElementsByClassName("TaxiLogicDiv")[0];
-  if(element !== undefined)
-      return;
+  if(element !== undefined){
+    taxilogic.SetAndStartUser(user);
+    return;
+  }
+
+  var prikazRezervacija = document.getElementsByClassName("prikazRezervacija")[0];
+  if(prikazRezervacija !== undefined){
 
   const TaxiLogicDiv = document.createElement("div");
   TaxiLogicDiv.className = "TaxiLogicDiv";
-  document.body.appendChild(TaxiLogicDiv);
+  // document.body.appendChild(TaxiLogicDiv);
 
-  const taxilogic = new TaxiLogic(user, TaxiLogicDiv);
+  document.body.insertBefore(TaxiLogicDiv, prikazRezervacija);
+
+
+  taxilogic = new TaxiLogic(user, TaxiLogicDiv);
   taxilogic.draw();
+}
 }
 
 
@@ -261,36 +265,36 @@ function getStudentsByMark(mark: string): Observable<Driver[]> {
       .catch((err) => console.log("Error" + err))
   );
 }
-function createYearBox() {
-  const inputDiv = document.createElement("div");
-  document.body.appendChild(inputDiv);
+// function createYearBox() {
+//   const inputDiv = document.createElement("div");
+//   document.body.appendChild(inputDiv);
 
-  const label = document.createElement("label");
-  label.innerHTML = "Unesite donju granicu godine rodjenja:";
-  label.style.margin = "10px";
-  inputDiv.appendChild(label);
+//   const label = document.createElement("label");
+//   label.innerHTML = "Unesite donju granicu godine rodjenja:";
+//   label.style.margin = "10px";
+//   inputDiv.appendChild(label);
 
-  const input = document.createElement("input");
-  input.type = "number";
-  input.id = "input";
-  inputDiv.appendChild(input);
-  fromEvent(input, "input")
-    .pipe(
-      debounceTime(500),
-      map((ev: InputEvent) => (<HTMLInputElement>ev.target).value),
-      filter((text) => text.length >= 4),
-      switchMap(
-        (student) => getStudentsByYear(student) //.pipe(
-        //map(students => students.filter(p => p.avgMark > 9))
-      ) //))
-      //map(movies => movies[0])
-    )
-    .subscribe((student: Driver[]) => {
-      console.log(student);
-      //student = student.filter(p => p.avgMark > 9);
-      WriteStudents(student);
-    });
-}
+//   const input = document.createElement("input");
+//   input.type = "number";
+//   input.id = "input";
+//   inputDiv.appendChild(input);
+//   fromEvent(input, "input")
+//     .pipe(
+//       debounceTime(500),
+//       map((ev: InputEvent) => (<HTMLInputElement>ev.target).value),
+//       filter((text) => text.length >= 4),
+//       switchMap(
+//         (student) => getStudentsByYear(student) //.pipe(
+//         //map(students => students.filter(p => p.avgMark > 9))
+//       ) //))
+//       //map(movies => movies[0])
+//     )
+//     .subscribe((driverArray: Driver[]) => {
+//      // console.log(student);
+//       //student = student.filter(p => p.avgMark > 9);
+//       WriteDrivers(driverArray);
+//     });
+// }
 
 function getStudentsByYear(year: string): Observable<Driver[]> {
   console.log(`fetching movie with a mark ${year}`);
@@ -312,7 +316,7 @@ function getStudentsByYear(year: string): Observable<Driver[]> {
   );
 }
 
-function WriteStudents(students: Driver[]) {
+function WriteDrivers(students: Driver[]) {
   if (counter++ == 0) createH2("Tabela svih studenata", document.body);
   else createH2("Tabela selektovanih studenata br. " + `${counter - 1}`, document.body);
 
@@ -359,6 +363,19 @@ function createTd(text: string, ThiliTd: HTMLElement) {
   ThiliTd.appendChild(td);
 }
 
+
+function createReservations() {
+  
+  let prikazRezervacija = document.createElement("div");
+  prikazRezervacija.className = "prikazRezervacija";
+  document.body.appendChild(prikazRezervacija);
+
+  createH3("Rezervacije:", prikazRezervacija);
+
+
+
+
+}
 // fetch(`${API_URL}/drivers/Audi A4`) //?title=${mark}``)
 //       .then(response => {
 //         if(!response.ok)
@@ -368,7 +385,3 @@ function createTd(text: string, ThiliTd: HTMLElement) {
 //       })
 //       .then(data=>{ console.log(data); })
 //       .catch((err) => console.log("Error" + err))
-
-
-
-

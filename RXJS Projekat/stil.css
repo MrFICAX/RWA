@@ -122,4 +122,14 @@ h4, h5{
     opacity: 90%;
     border: ridge 15px rgb(108, 177, 4);
 }
+
+.prikazRezervacija{
+    margin: 10px;
+    padding: 10px;}
     
+.reservation{
+    background-color: cyan;
+    height: 30px;
+    margin: 10px;
+    padding: 10px;
+}
