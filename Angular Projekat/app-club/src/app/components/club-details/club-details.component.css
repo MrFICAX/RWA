@@ -1,0 +1,52 @@
+:host{
+    background-color: yellowgreen;
+    width: 80%;
+    display: block;
+    border: 3px solid gray ;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 10px 5px 10px  yellow;
+
+}
+:host:hover{
+    cursor: pointer;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+    margin-top: 0%;
+    padding: 10px;
+    background-color: rgb(195, 193, 193);
+    font-size: 25px;
+}
+
+img{
+    width: 50%;
+}
+div.description{
+    width: 45%;
+    float: right;
+    font-size: 25px;
+}
+div.attendance{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    background-color: rgb(204, 90, 90);
+    font-size: 45px;
+}
+fa-icon{
+    margin-left: 10px;
+}
+.LikeButton{
+    float: right;
+    font-size: 40px;
+    background-color: black;
+    color: red;
+}
+div.LikeButton fa-icon {
+    color: white;
+}
+
+
