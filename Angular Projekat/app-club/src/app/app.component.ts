@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Player } from './models/player';
 import { Stadium } from './models/stadium';
 
 @Component({
@@ -15,5 +16,13 @@ export class AppComponent {
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Fk_Red_Star_stadium.jpg/300px-Fk_Red_Star_stadium.jpg",
     city: "Beograd",
     attendance: 53000
+  };
+  MyPlayer:Player = {
+    id: 1,
+    fullname: "Milan Pavkov",
+    position: "Napad",
+    image: "https://www.kurir.rs/data/images/2021/02/19/15/2467747_pavkov1_ls.jpg",
+    likes: 30,
+    dislikes: 9
   };
 }

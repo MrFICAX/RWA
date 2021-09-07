@@ -1,0 +1,51 @@
+:host{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid black;
+    background-image: url("https://static.rtv.rs/slike/2020/05/29/fk-crvena-zvezda-dres-grb.jpg");
+    background-size: 400px;
+    border-radius: 30px;
+}
+img{
+    margin-top: 10px;
+    width: 80%;
+    border-radius: 30px;
+    border-right-style: groove;
+    border-left-style: ridge;
+}
+fa-icon{
+    margin-left: 10px;
+    font-size: 30px;
+}
+h4{
+    text-align: center;
+    font-size: 20px;
+    margin: 0px;
+    border-bottom: 2px solid white;
+    margin-top: 0%;
+    width: 100%;
+    background-color: thistle;
+}
+.gornjiH4{
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+h5{
+    margin-top: -3px;
+    background-color:thistle;
+    opacity: 0.9;
+    font-weight: bold;
+    color: #000000;
+}
+.glasanje{
+    display: flex;
+    flex-direction: row;
+    
+}
+.glasanje * {
+    margin: 3%;
+    font-size: 15px;
+}
