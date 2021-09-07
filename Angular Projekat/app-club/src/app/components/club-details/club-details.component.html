@@ -1,10 +1,12 @@
+<div class="container" *ngIf="stadium">
 
-<h3>Stadion: {{stadium.name}}</h3>
-<img src="{{stadium.image}}"/>
-
-<div class="description">{{stadium.description}}</div>
-<div class="attendance">Broj sedista: {{stadium.attendance}}<fa-icon [icon]="iconUsers"></fa-icon></div>
-<div class="LikeButton">Oznaci da ti se svidja!<fa-icon class="bela" [icon]="iconHeart" (click) = Change()></fa-icon></div>
+    <h3>Stadion: {{stadium.name}}</h3>
+    <img src="{{stadium.image}}"/>
+    
+    <div class="description">{{stadium.description}}</div>
+    <div class="attendance">Broj sedista: {{stadium.attendance}}<fa-icon [icon]="iconUsers"></fa-icon></div>
+    <div class="LikeButton">Oznaci da ti se svidja!<fa-icon class="bela" [icon]="iconHeart" (click) = Change()></fa-icon></div>
+</div>
 
 
 

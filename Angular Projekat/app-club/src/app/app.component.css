@@ -11,3 +11,16 @@ h1, h2{
     background-color: white;
     font-size: 45px;
 }
+
+app-player-list{
+    float: left;
+}
+app-player-details{
+    float: left ;
+}
+.ListaIThumbnail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

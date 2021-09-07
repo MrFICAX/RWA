@@ -5,6 +5,10 @@
 <app-club-details [stadium]="MyStadium"></app-club-details>
 
 
-<h3>Lista igraca:</h3>
+<h1>Lista igraca:</h1>
+<div class="ListaIThumbnail">
 
-<app-player-details [player] = "MyPlayer"></app-player-details>
+    <app-players-list (onSelectedPlayer)="handlePlayerSelection($event)"></app-players-list>
+    
+    <app-player-details [player] = "selectedPlayer"></app-player-details>
+</div>

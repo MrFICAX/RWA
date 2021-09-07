@@ -5,12 +5,16 @@
     flex-direction: column;
     border: 3px solid black;
     background-image: url("https://static.rtv.rs/slike/2020/05/29/fk-crvena-zvezda-dres-grb.jpg");
-    background-size: 400px;
+    background-size: 300%;
     border-radius: 30px;
+    margin: 15px;
 }
 img{
     margin-top: 10px;
+    align-content: center;
     width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     border-radius: 30px;
     border-right-style: groove;
     border-left-style: ridge;
@@ -43,6 +47,7 @@ h5{
 .glasanje{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     
 }
 .glasanje * {

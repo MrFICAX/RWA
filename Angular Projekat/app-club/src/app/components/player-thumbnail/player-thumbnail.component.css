@@ -1,0 +1,14 @@
+img{
+    width: 250px;
+    height: 150px;
+}
+
+.igrac{
+    border: 1px solid black;
+    text-align: center;
+}
+h3{
+    font-family: 'Times New Roman', Times, serif;
+    color: darkblue;
+    font-size: 25px;
+}

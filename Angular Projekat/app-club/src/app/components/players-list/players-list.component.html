@@ -1,0 +1,6 @@
+<ul *ngFor="let player of players | async">
+    <!-- <li >
+        <app-player-details [player] = "player"></app-player-details>
+    </li> -->
+    <app-player-thumbnail [player] = "player" (onClick) = "selectPlayer($event)"></app-player-thumbnail>
+</ul>

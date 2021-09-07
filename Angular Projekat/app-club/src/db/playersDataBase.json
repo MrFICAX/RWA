@@ -1,0 +1,92 @@
+{
+    "players":[
+        {
+            "id": 1,
+            "fullname": "Milan Pavkov",
+            "position": "Napad",
+            "image": "https://www.kurir.rs/data/images/2021/02/19/15/2467747_pavkov1_ls.jpg",
+            "likes": 30,
+            "dislikes": 9
+        },
+        {
+            "id": 2,
+            "fullname": "Strahinja Erakovic",
+            "position": "Odbrana",
+            "image": "https://static.mondo.rs/Picture/899894/jpeg/strahinja-erakovic.jpg",
+            "likes": 13,
+            "dislikes": 4
+        },
+        {
+            "id": 3,
+            "fullname": "El Fardou Ben",
+            "position": "Napad",
+            "image": "https://www.kurir.rs/data/images/2020/12/17/15/2408565_cz-ben1_ls.jpg",
+            "likes": 53,
+            "dislikes": 23
+        },
+        {
+            "id": 4,
+            "fullname": "Aleksandar Dragovic",
+            "position": "Odbrana",
+            "image": "https://cdn3.mozzartsport.com/upload/825x464/News/Image/2021_05/1621856352619_176930349_183711890243704_9152060155167254857_n.jpg",
+            "likes": 45,
+            "dislikes": 11
+        },
+        {
+            "id": 5,
+            "fullname": "Milos Degenek",
+            "position": "Odbrana",
+            "image": "https://static.mondo.rs/Picture/969190/jpeg/milos-degenek",
+            "likes": 23,
+            "dislikes": 5
+        },
+        {
+            "id": 6,
+            "fullname": "Milan Borjan",
+            "position": "Golman",
+            "image": "https://cdn1.img.rs.sputniknews.com/img/07e5/08/05/1128170053_500:0:3231:2048_1920x0_80_0_0_2a4ce66ba8e9ce9c3d960b10d6503261.jpg",
+            "likes": 33,
+            "dislikes": 3
+        },
+        {
+            "id": 7,
+            "fullname": "Mirko Ivanic",
+            "position": "Sredina",
+            "image": "https://cdn3.mozzartsport.com/upload/825x464/News/Image/2021_02/1613780987862_CRVENA_ZVEZDA-AC_MILAN_212_(1).jpg",
+            "likes": 43,
+            "dislikes": 4
+        },
+        {
+            "id": 8,
+            "fullname": "Guelor Kanga",
+            "position": "Sredina",
+            "image": "https://static.mondo.rs/Picture/662083/jpeg/Gelor-Kanga-Crvena-zvezda",
+            "likes": 37,
+            "dislikes":11
+        },
+        {
+            "id": 9,
+            "fullname": "Aleksandar Katai",
+            "position": "Sredina",
+            "image": "https://cdn3.mozzartsport.com/upload/825x464/News/Image/2021_01/1610273860417_kataaa.jpg",
+            "likes": 55,
+            "dislikes":3
+        },
+        {
+            "id": 10,
+            "fullname": "Seku    Sanogo",
+            "position": "Sredina",
+            "image": "https://sportklub.rs/wp-content/uploads/2020/09/seku-sanogo-186706.jpeg",
+            "likes": 30,
+            "dislikes": 9
+        },
+        {
+            "id": 11,
+            "fullname": "Milan Rodic",
+            "position": "Sredina",
+            "image": "https://www.kurir.rs/data/images/2018/03/26/21/1442933_rodic-dado01_ls.jpg",
+            "likes": 33,
+            "dislikes": 5
+        }
+    ]
+}

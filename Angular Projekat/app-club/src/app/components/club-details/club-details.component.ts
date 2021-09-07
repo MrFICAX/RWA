@@ -17,15 +17,17 @@ export class ClubDetailsComponent implements OnInit {
   //   city: "Beograd",
   //   attendance: 53000
   // };
-  @Input() stadium: Stadium = {
-    id: 0,
-    name: "",
-    description:"",
-    image:"",
-    city:"",
-    attendance: 0
-  };
+  // @Input() stadium: Stadium = {
+  //   id: 0,
+  //   name: "",
+  //   description:"",
+  //   image:"",
+  //   city:"",
+  //   attendance: 0
+  // };
   
+  @Input() stadium:Stadium | null = null;
+
   iconUsers = faUsers;
   iconHeart = faHeartBroken;
   constructor() { }

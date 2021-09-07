@@ -9,6 +9,7 @@ import { Stadium } from './models/stadium';
 })
 export class AppComponent {
   title = 'app-club';
+  selectedPlayer: Player | null = null;
   MyStadium: Stadium = {
     id: 1,
     name: "Rajko Mitic",
@@ -17,12 +18,16 @@ export class AppComponent {
     city: "Beograd",
     attendance: 53000
   };
-  MyPlayer:Player = {
-    id: 1,
-    fullname: "Milan Pavkov",
-    position: "Napad",
-    image: "https://www.kurir.rs/data/images/2021/02/19/15/2467747_pavkov1_ls.jpg",
-    likes: 30,
-    dislikes: 9
-  };
+  // MyPlayer:Player = {
+  //   id: 1,
+  //   fullname: "Milan Pavkov",
+  //   position: "Napad",
+  //   image: "https://www.kurir.rs/data/images/2021/02/19/15/2467747_pavkov1_ls.jpg",
+  //   likes: 30,
+  //   dislikes: 9
+  // };
+
+  handlePlayerSelection(player: Player){
+    this.selectedPlayer = player;
+  }
 }
