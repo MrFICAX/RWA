@@ -9,6 +9,7 @@ import { PlayerDetailsComponent } from './components/player-details/player-detai
 import { PlayersListComponent } from './components/players-list/players-list.component';
 import { PlayersService } from './services/players.service';
 import { PlayerThumbnailComponent } from './components/player-thumbnail/player-thumbnail.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PlayerThumbnailComponent } from './components/player-thumbnail/player-t
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({})
   ],
   providers: [PlayersService],
   bootstrap: [AppComponent]
