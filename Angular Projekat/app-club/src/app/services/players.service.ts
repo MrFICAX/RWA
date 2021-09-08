@@ -4,6 +4,7 @@ import { Player } from '../models/player';
 import { environment } from 'src/environments/environment';
 import { catchError} from 'rxjs/operators'
 import { throwError } from 'rxjs';
+import { Stadium } from '../models/stadium';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,17 @@ export class PlayersService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(){
-    return this.httpClient.get<Player[]>(environment.apiUrl + "players").pipe(
+  getPlayers(){
+    return this.httpClient.get<Player[]>(environment.apiUrl + "club").pipe(
       catchError(errorHandler));
   }
+
+  getStadium(){
+    return this.httpClient.get<Stadium>(environment.apiUrl + "stadium").pipe(
+      catchError(errorHandler));
+  }
+
+
 }
 
 

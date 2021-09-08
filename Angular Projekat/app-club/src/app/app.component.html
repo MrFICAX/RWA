@@ -2,13 +2,13 @@
 
 <h2>DOBRODOSLI NA OFICIJALNI SAJT FUDBALSKOG KLUBA CRVENA ZVEZDA!</h2>
 
-<app-club-details [stadium]="MyStadium"></app-club-details>
+<app-club-details [stadium]="MyStadium | async"></app-club-details>
 
 
 <h1>Lista igraca:</h1>
 <div class="ListaIThumbnail">
 
-    <app-players-list (onSelectedPlayer)="handlePlayerSelection($event)"></app-players-list>
+    <app-players-list></app-players-list>
     
-    <app-player-details [player] = "selectedPlayer"></app-player-details>
+    <app-player-details [player] = "selectedPlayer | async"></app-player-details>
 </div>

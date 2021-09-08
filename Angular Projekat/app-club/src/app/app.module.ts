@@ -10,6 +10,8 @@ import { PlayersListComponent } from './components/players-list/players-list.com
 import { PlayersService } from './services/players.service';
 import { PlayerThumbnailComponent } from './components/player-thumbnail/player-thumbnail.component';
 import { StoreModule } from '@ngrx/store';
+import { playerReducer } from './store/players.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,11 @@ import { StoreModule } from '@ngrx/store';
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({club: playerReducer}),
+    StoreDevtoolsModule.instrument({
+        maxAge: 25
+    })
+  
   ],
   providers: [PlayersService],
   bootstrap: [AppComponent]

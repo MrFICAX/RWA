@@ -40,6 +40,7 @@ export class ClubDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }

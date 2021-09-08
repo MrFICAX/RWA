@@ -1,33 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 import { Player } from './models/player';
 import { Stadium } from './models/stadium';
+import { PlayersService } from './services/players.service';
+import { AppState } from './store/app-state';
+import { selectSelectedPlayer, selectStadium } from './store/players.selectors';
+import * as Actions from 'src/app/store/players.actions';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app-club';
-  selectedPlayer: Player | null = null;
-  MyStadium: Stadium = {
-    id: 1,
-    name: "Rajko Mitic",
-    description: "Rajko Mitić Stadium (Serbian: Стадион Рајко Митић / Stadion Rajko Mitić, previously known as Red Star Stadium (Serbian: Стадион Црвена звезда / Stadion Crvena zvezda), also known as Marakana (Serbian Cyrillic: Маракана) is a multi-use stadium in Belgrade, Serbia which has been the home ground of Red Star Belgrade since 1963. The stadium is located in Dedinje, municipality of Savski Venac.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Fk_Red_Star_stadium.jpg/300px-Fk_Red_Star_stadium.jpg",
-    city: "Beograd",
-    attendance: 53000
-  };
-  // MyPlayer:Player = {
-  //   id: 1,
-  //   fullname: "Milan Pavkov",
-  //   position: "Napad",
-  //   image: "https://www.kurir.rs/data/images/2021/02/19/15/2467747_pavkov1_ls.jpg",
-  //   likes: 30,
-  //   dislikes: 9
-  // };
+  selectedPlayer: Observable<Player | null> = of(null);
+  MyStadium: Observable<Stadium | null> = of(null);
 
-  handlePlayerSelection(player: Player){
-    this.selectedPlayer = player;
+  // MyStadium: Stadium = {
+  //   id: 1,
+  //   name: "Rajko Mitic",
+  //   description: "Rajko Mitić Stadium (Serbian: Стадион Рајко Митић / Stadion Rajko Mitić, previously known as Red Star Stadium (Serbian: Стадион Црвена звезда / Stadion Crvena zvezda), also known as Marakana (Serbian Cyrillic: Маракана) is a multi-use stadium in Belgrade, Serbia which has been the home ground of Red Star Belgrade since 1963. The stadium is located in Dedinje, municipality of Savski Venac.",
+  //   image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Fk_Red_Star_stadium.jpg/300px-Fk_Red_Star_stadium.jpg",
+  //   city: "Beograd",
+  //   attendance: 53000
+  // };
+  
+  
+  constructor(private store: Store<AppState>, private service: PlayersService){
+
   }
+  ngOnInit(): void {
+    this.selectedPlayer = this.store.select(selectSelectedPlayer);
+
+    this.service.getStadium().subscribe(stadium => {
+      this.store.dispatch(Actions.loadStadium({stadium: stadium}));
+    })
+    this.MyStadium = this.store.select(selectStadium);
+  }
+
 }
