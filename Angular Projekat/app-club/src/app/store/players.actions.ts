@@ -19,14 +19,18 @@ export const setDislikeForPlayer = createAction(
     }>()
 )
 
-export const loadPlayers = createAction(
+export const loadPlayersSuccessFromEffects = createAction(
     "Load Players",
     props<{
         players: Player[]
     }>()
 )
 
-export const loadStadium = createAction(
+export const loadStadiumFromEffects = createAction(
+    "Trying to load stadium"
+)
+
+export const loadStadiumSuccessFromEffects = createAction(
     "Load Stadium",
     props<{
         stadium: Stadium
@@ -38,4 +42,8 @@ export const selectPlayer = createAction(
     props<{
         playerId: string
     }>()
+)
+
+export const loadPlayersFromEffects = createAction(
+    "Load Players from Effects"
 )

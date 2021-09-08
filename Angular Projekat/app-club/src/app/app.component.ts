@@ -33,11 +33,13 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit(): void {
+    this.store.dispatch(Actions.loadPlayersFromEffects());
     this.selectedPlayer = this.store.select(selectSelectedPlayer);
 
-    this.service.getStadium().subscribe(stadium => {
-      this.store.dispatch(Actions.loadStadium({stadium: stadium}));
-    })
+    // this.service.getStadium().subscribe(stadium => {
+    //   this.store.dispatch(Actions.loadStadium({stadium: stadium}));
+    // })
+    this.store.dispatch(Actions.loadStadiumFromEffects());
     this.MyStadium = this.store.select(selectStadium);
   }
 

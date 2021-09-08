@@ -22,9 +22,9 @@ export class PlayersListComponent implements OnInit {
     //this.players = this.PlayerService.getAll();
 
     //AKCIJA SE NE DISPATCH-UJE IZ SUBSCRIBE-A !! OVAKO SE NE RADI
-    this.PlayerService.getPlayers().subscribe(NewPlayers => {
-      this.store.dispatch(Actions.loadPlayers({players: NewPlayers}));
-    })
+    // this.PlayerService.getPlayers().subscribe(NewPlayers => {
+    //   this.store.dispatch(Actions.loadPlayers({players: NewPlayers}));
+    // })
 ///---------------------------------
     this.players = this.store.select(selectAllPlayers);
   }

@@ -1,11 +1,20 @@
 import { createSelector } from "@ngrx/store";
+import { Player } from "../models/player";
 import { AppState } from "./app-state";
 
 export const selectPlayersFeature = (state: AppState) => state.club;
 
 export const selectAllPlayers = createSelector(
     selectPlayersFeature,
-    (state) => state.allPlayers
+    (state) => Object
+    .values(state.entities)
+    .filter(player => player != null)
+    .map(player => <Player>player)  
+)
+
+export const selectAllPlayersAsDict = createSelector(
+    selectPlayersFeature,
+    (state) => state.entities
 )
 
 export const selectSelectedPlayerId = createSelector(
@@ -19,8 +28,9 @@ export const selectStadium = createSelector(
 )
 
 export const selectSelectedPlayer = createSelector(
-    selectAllPlayers,
+    selectAllPlayersAsDict,
     selectSelectedPlayerId,
     (allPlayers, playerId) => 
-        allPlayers.find(player => player.id === playerId) ?? null
+        allPlayers[playerId] ?? null    
+    //allPlayers.find(player => player.id === playerId) ?? null
 )

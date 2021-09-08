@@ -12,6 +12,8 @@ import { PlayerThumbnailComponent } from './components/player-thumbnail/player-t
 import { StoreModule } from '@ngrx/store';
 import { playerReducer } from './store/players.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { PlayersEffects } from './store/movies.effects';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forRoot({club: playerReducer}),
     StoreDevtoolsModule.instrument({
         maxAge: 25
-    })
-  
+    }),
+    EffectsModule.forRoot([PlayersEffects])
   ],
   providers: [PlayersService],
   bootstrap: [AppComponent]
