@@ -16,8 +16,8 @@ import * as Actions from 'src/app/store/players.actions';
 })
 export class AppComponent implements OnInit{
   title = 'app-club';
-  selectedPlayer: Observable<Player | null> = of(null);
-  MyStadium: Observable<Stadium | null> = of(null);
+  //selectedPlayer: Observable<Player | null> = of(null);
+  //MyStadium: Observable<Stadium | null> = of(null);
 
   // MyStadium: Stadium = {
   //   id: 1,
@@ -34,13 +34,13 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     this.store.dispatch(Actions.loadPlayersFromEffects());
-    this.selectedPlayer = this.store.select(selectSelectedPlayer);
+    //this.selectedPlayer = this.store.select(selectSelectedPlayer);
 
     // this.service.getStadium().subscribe(stadium => {
     //   this.store.dispatch(Actions.loadStadium({stadium: stadium}));
     // })
     this.store.dispatch(Actions.loadStadiumFromEffects());
-    this.MyStadium = this.store.select(selectStadium);
+    //this.MyStadium = this.store.select(selectStadium);
   }
 
 }

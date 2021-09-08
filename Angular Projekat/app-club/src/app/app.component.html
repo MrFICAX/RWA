@@ -1,14 +1,22 @@
+
+    <img src="https://lh3.googleusercontent.com/QPbtUSu6Obrkea8MvT0wzBoZMYhKem4Seyv8mmKivOYbBPOzSF8dpem88A5bLgX37tukIMKktn8MBiwEEG156Mct
+    "/>
+
 <h1>FK CRVENA ZVEZDA</h1>
 
 <h2>DOBRODOSLI NA OFICIJALNI SAJT FUDBALSKOG KLUBA CRVENA ZVEZDA!</h2>
 
-<app-club-details [stadium]="MyStadium | async"></app-club-details>
+<nav>
+    <ul>
+        <li>
+            <a class="button" routerLink="/stadium">STADION</a>
+        </li>
+        <li>
+            <a class="button" routerLink="/players">AKTIVNI IGRACI</a>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>
 
 
-<h1>Lista igraca:</h1>
-<div class="ListaIThumbnail">
-
-    <app-players-list></app-players-list>
-    
-    <app-player-details [player] = "selectedPlayer | async"></app-player-details>
-</div>

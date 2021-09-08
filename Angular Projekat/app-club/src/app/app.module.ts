@@ -14,6 +14,10 @@ import { playerReducer } from './store/players.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { PlayersEffects } from './store/movies.effects';
+import { AppRoutingModule } from './app-routing.module';
+import { StadiumComponent } from './components/stadium/stadium.component';
+import { PlayersComponent } from './components/players/players.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { PlayersEffects } from './store/movies.effects';
     ClubDetailsComponent,
     PlayerDetailsComponent,
     PlayersListComponent,
-    PlayerThumbnailComponent
+    PlayerThumbnailComponent,
+    StadiumComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import { PlayersEffects } from './store/movies.effects';
     StoreDevtoolsModule.instrument({
         maxAge: 25
     }),
-    EffectsModule.forRoot([PlayersEffects])
+    EffectsModule.forRoot([PlayersEffects]),
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [PlayersService],
   bootstrap: [AppComponent]
