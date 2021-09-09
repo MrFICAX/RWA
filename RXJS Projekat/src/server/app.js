@@ -43,11 +43,11 @@ app.get('/', (request, response) => { //http://localhost:3000/ ruta za poziv ove
 
 });
 
-app.get('/drivers/:carName?', (request, response) => { //http://localhost:3000/products/3 ruta za poziv ove metode
+app.get('/drivers/:carName?', (request, response) => { //http://localhost:3000/<naziv_automobila> ruta za poziv ove metode
     var newArray;
     const Parameters = request.params;
-    let fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
-    console.log(Parameters.carName);
+    //let fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
+    //console.log(Parameters.carName);
     const CarInput = Parameters.carName;
     console.log(CarInput);
     readJSONFile('taxi_drivers.json', function (err, json) {
@@ -58,10 +58,7 @@ app.get('/drivers/:carName?', (request, response) => { //http://localhost:3000/p
                // console.log(drivers);
                 newArray = drivers.filter(function (el)
                     {
-                      console.log(CarInput);
-                      console.log(el.car);
-
-                        return el.car == CarInput;
+                      return el.car === CarInput;
                     }
                 );
             response.send(newArray);
@@ -98,8 +95,8 @@ app.get('/cars', (request, response) => { //http://localhost:3000/products/3 rut
               drivers.forEach(element => {
                 newArray.push(element.car);
               });
-              console.log(newArray);
-              let uniqueChars = [...new Set(newArray)];
+              //console.log(newArray);
+              let uniqueChars = [...new Set(newArray)]; //spread operator zadrzava stanje niza i dodaje (Niz)Set sa novim automobilima
 
             console.log(uniqueChars);  
             //   newArray.filter((item, pos) => {
@@ -119,15 +116,15 @@ app.listen(port, () => {
 function readJSONFile(filename, callback) {
   fs.readFile(filename, function (err, data) {
     if(err) {
-        console.log("ERROR WHILE READING");
+        console.log("GRESKA PRILIKOM CITANJA");
       callback(err);
       return;
     }
     try {
-        console.log("STARTED TO READ");
+        console.log("POCINJEM DA CITAM PODATKE");
       callback(null, JSON.parse(data));
     } catch(exception) {
-        console.log("EXCEPTION WHILE READING");
+        console.log("EXCEPTION PRILIKOM CITANJA");
       callback(exception);
     }
   });
