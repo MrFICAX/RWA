@@ -1,0 +1,11 @@
+:host{
+    float:right;
+    width: 800px;
+    
+}
+.dugme{
+    font-size: 50px;
+     width: 770px;
+      margin: 30px;
+       color:red;
+}

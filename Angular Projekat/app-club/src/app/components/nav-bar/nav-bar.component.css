@@ -1,0 +1,12 @@
+:host{
+  height: 200px;
+}
+.container {
+    justify-content: flex-start;
+    width: 200px;
+  }
+
+  .logo * {
+    width: 200px;
+    height: 200px;
+  }

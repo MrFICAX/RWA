@@ -7,6 +7,7 @@ import { PlayersService } from './services/players.service';
 import { AppState } from './store/app-state';
 import { selectSelectedPlayer, selectStadium } from './store/players.selectors';
 import * as Actions from 'src/app/store/players.actions';
+import { AuthService } from '@auth0/auth0-angular';
 
 
 @Component({
@@ -16,6 +17,9 @@ import * as Actions from 'src/app/store/players.actions';
 })
 export class AppComponent implements OnInit{
   title = 'app-club';
+
+  profileJson: string = "";
+
   //selectedPlayer: Observable<Player | null> = of(null);
   //MyStadium: Observable<Stadium | null> = of(null);
 
@@ -29,7 +33,7 @@ export class AppComponent implements OnInit{
   // };
   
   
-  constructor(private store: Store<AppState>, private service: PlayersService){
+  constructor(private store: Store<AppState>, private service: PlayersService, public auth: AuthService){
 
   }
   ngOnInit(): void {
@@ -41,6 +45,10 @@ export class AppComponent implements OnInit{
     // })
     this.store.dispatch(Actions.loadStadiumFromEffects());
     //this.MyStadium = this.store.select(selectStadium);
+
+    this.auth.user$.subscribe(
+      (profile) => (this.profileJson = JSON.stringify(profile, null, 2))
+    );
   }
 
 }

@@ -1,6 +1,40 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+<div class ="zaglavlje">
 
-    <img src="https://lh3.googleusercontent.com/QPbtUSu6Obrkea8MvT0wzBoZMYhKem4Seyv8mmKivOYbBPOzSF8dpem88A5bLgX37tukIMKktn8MBiwEEG156Mct
-    "/>
+<div *ngIf="auth.user$ | async as user">
+    <div class="profil">
+        <img
+          [src]="user.picture"
+          alt="User's profile picture"
+          class="rounded-circle img-fluid profile-picture slika"/>
+          <div class="tekstProfil">
+
+              <h2>Vaš username: {{ user.nickname }}</h2>
+              <h3 class="lead text-muted">Vaš Email: {{ user.email }}</h3>
+            </div>
+        </div>
+</div>
+
+
+<ng-template #loaded>
+    <app-nav-bar class="dete"></app-nav-bar>
+</ng-template>
+            
+<div id="app" class="">
+    <div class="container" *ngIf="auth.isLoading$ | async; else loaded">
+    </div>
+
+    
+    
+  
+
+  </div>
+
+  
+<img class="dete" src="https://lh3.googleusercontent.com/QPbtUSu6Obrkea8MvT0wzBoZMYhKem4Seyv8mmKivOYbBPOzSF8dpem88A5bLgX37tukIMKktn8MBiwEEG156Mct
+"/>
+
+</div>
 
 <h1>FK CRVENA ZVEZDA</h1>
 
@@ -14,12 +48,13 @@
         <li>
             <a class="button" routerLink="/players">AKTIVNI IGRACI</a>
         </li>
-        <li>
+        <li *ngIf="auth.user$ | async as user">
             <a class="button" routerLink="/player-manager">UPRAVLJAJ IGRACIMA</a>
         </li>
     </ul>
 </nav>
 
 <router-outlet></router-outlet>
+
 
 
