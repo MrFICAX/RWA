@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   faThumbsUp,
   faThumbtack,
@@ -16,7 +21,7 @@ import {
   selector: 'app-player-details',
   templateUrl: './player-details.component.html',
   styleUrls: ['./player-details.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlayerDetailsComponent implements OnInit {
   // @Input() player:Player = {
@@ -32,18 +37,41 @@ export class PlayerDetailsComponent implements OnInit {
   iconLike = faThumbsUp;
   iconDislike = faThumbsDown;
 
-   liked: boolean = false;
-   disliked: boolean = false;
+  lastPlayer: Player = {
+    id: 0,
+    fullname: '',
+    position: '',
+    image: '',
+    likes: 0,
+    dislikes: 0,
+  };
+  liked: boolean = false;
+  disliked: boolean = false;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>) { }
+
+  checkPlayer() {
+    if (this.lastPlayer.id !== this.player?.id) {
+      this.liked = false;
+      this.disliked = false;
+      this.lastPlayer.id = this.player!.id;
+    }
+  }
 
   setLike() {
+    this.checkPlayer();
     if (!this.player) return;
     if (!this.liked) {
       this.store.dispatch(
         setLikeForPlayer({
-          playerId: this.player.id,
-          newValue: this.player.likes+1,
+          player: {
+            id: this.player.id,
+            fullname: this.player.fullname,
+            position: this.player.position,
+            image: this.player.image,
+            likes: this.player.likes + 1,
+            dislikes: this.player.dislikes,
+          },
         })
       );
       //this.player.likes ++;
@@ -51,8 +79,14 @@ export class PlayerDetailsComponent implements OnInit {
     } else {
       this.store.dispatch(
         setLikeForPlayer({
-          playerId: this.player.id,
-          newValue: this.player.likes-1,
+          player: {
+            id: this.player.id,
+            fullname: this.player.fullname,
+            position: this.player.position,
+            image: this.player.image,
+            likes: this.player.likes - 1,
+            dislikes: this.player.dislikes,
+          },
         })
       );
 
@@ -61,12 +95,19 @@ export class PlayerDetailsComponent implements OnInit {
     }
   }
   setDislike() {
+    this.checkPlayer();
     if (!this.player) return;
     if (!this.disliked) {
       this.store.dispatch(
         setDislikeForPlayer({
-          playerId: this.player.id,
-          newValue: this.player.dislikes+1,
+          player: {
+            id: this.player.id,
+            fullname: this.player.fullname,
+            position: this.player.position,
+            image: this.player.image,
+            likes: this.player.likes,
+            dislikes: this.player.dislikes + 1,
+          },
         })
       );
       //this.player.dislikes ++;
@@ -74,8 +115,14 @@ export class PlayerDetailsComponent implements OnInit {
     } else {
       this.store.dispatch(
         setDislikeForPlayer({
-          playerId: this.player.id,
-          newValue: this.player.dislikes-1,
+          player: {
+            id: this.player.id,
+            fullname: this.player.fullname,
+            position: this.player.position,
+            image: this.player.image,
+            likes: this.player.likes,
+            dislikes: this.player.dislikes - 1,
+          },
         })
       );
       //this.player.dislikes--;
@@ -83,5 +130,8 @@ export class PlayerDetailsComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.liked = false;
+    this.disliked = false;
+  }
 }

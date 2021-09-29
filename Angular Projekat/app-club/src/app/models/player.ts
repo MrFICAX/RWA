@@ -1,5 +1,5 @@
 export interface Player{
-    id: string;
+    id: number;
     fullname: string;
     position: string;
     image: string;

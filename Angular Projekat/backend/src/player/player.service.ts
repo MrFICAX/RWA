@@ -19,11 +19,38 @@ export class PlayerService {
     return await this.playerRepository.find();
   }
 
-  async update(player: Player): Promise<UpdateResult> {
-    return await this.playerRepository.update(player.id, player);
+  async update(player: Player): Promise<Player> {
+    await this.playerRepository.update(player.id, player);
+    return player;
+  }
+
+  async updateLikes(id: number, likes: number): Promise<Player>{
+    console.log("STIGAO SAM DO SERVISA NA BACKENDU");
+    
+    const property = await this.playerRepository.findOne({
+      where: { id }
+    });
+    console.log(property);
+    
+    return this.playerRepository.save({
+      ...property, // existing fields
+      likes: likes // updated fields
+    });
+  }
+
+  async updateDislikes(playerId: number, DislikesValue: number): Promise<Player>{
+    const property = await this.playerRepository.findOne({
+      where: { id:playerId }
+    });
+    
+    return this.playerRepository.save({
+      ...property, // existing fields
+      dislikes: DislikesValue // updated fields
+    });
   }
 
   async delete(id): Promise<DeleteResult> {
-    return await this.playerRepository.delete(id);
-  }
+     await this.playerRepository.delete(id);
+    return id;
+    }
 }

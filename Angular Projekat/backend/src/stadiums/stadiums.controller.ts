@@ -8,7 +8,7 @@ export class StadiumsController {
     }
 
     @Get()
-    read(): Promise<Stadium[]> {
+    read(): Promise<Stadium> {
       return this.stadiumService.readAll();
     }
     
