@@ -13,7 +13,7 @@ export class PlayersEffects {
     loadEffects$ = createEffect(() => 
         this.actions$.pipe(
             ofType(PlayerActions.loadPlayersFromEffects),
-            mergeMap(() => this.playersService.getPlayers()
+            mergeMap(() => this.playersService.readPlayers()
                 .pipe(
                     map((players) => (PlayerActions.loadPlayersSuccessFromEffects({players}))),
                     catchError(() => of({type: "load error"}))
