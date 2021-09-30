@@ -1,13 +1,8 @@
-:host{
-    float:right;
-    width: 800px;
-    
-}
 .dugme{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 50px;
     width: 770px;
-    margin-left: 1210px;
+    margin-left: 620px;
     color:red;
     background-color: white;
     border: 3px solid black;

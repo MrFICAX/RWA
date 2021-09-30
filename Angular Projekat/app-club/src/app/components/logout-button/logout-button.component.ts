@@ -5,7 +5,7 @@ import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-logout-button',
   templateUrl: './logout-button.component.html',
-  styles: [],
+  styleUrls: ["./logout-button.component.css"],
 })
 export class LogoutButtonComponent implements OnInit {
   constructor(
