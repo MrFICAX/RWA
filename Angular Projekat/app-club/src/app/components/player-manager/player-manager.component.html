@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>LISTA IGRACA:</mat-card-title>
+        <mat-card-title>SPISAK POSTOJECIH IGRACA:</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
@@ -29,7 +29,7 @@
                 <td mat-cell *matCellDef="let element"> {{element.dislikes}} </td>
             </ng-container>
             <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef> AKCIJE </th>
+                <th mat-header-cell *matHeaderCellDef> </th>
                 <td mat-cell *matCellDef="let element">
                     <button mat-raised-button (click)="deletePlayer(element.id)" color="secondary">OBRISI
                         IGRACA</button>
@@ -47,7 +47,7 @@
 
 <mat-card>
     <mat-card-header>
-        <mat-card-title>DODAVANJE NOVOG IGRACA</mat-card-title>
+        <mat-card-title>DODAVANJE/AZURIRANJE NOVOG IGRACA</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form #f="ngForm" class="mat-elevation-z8">

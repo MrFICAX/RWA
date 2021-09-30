@@ -1,6 +1,19 @@
+:host{
+    background-color: rgb(240, 60, 60);
+    background-image: linear-gradient( rgb(248, 248, 246), red);
+}
+
 .ListaIThumbnail{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+h1{
+    font-size: 65px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(87, 20, 3);
+    margin: 25px;
+
 }

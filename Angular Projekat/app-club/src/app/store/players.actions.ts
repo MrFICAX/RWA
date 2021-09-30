@@ -43,7 +43,7 @@ export const loadStadiumFromEffects = createAction(
 export const loadStadiumSuccessFromEffects = createAction(
     "Load Stadium",
     props<{
-        stadium: Stadium
+        stadium: Stadium[]
     }>()
 )
 

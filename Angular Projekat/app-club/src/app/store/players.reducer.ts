@@ -13,7 +13,7 @@ import * as Actions from './players.actions';
 // }
 
 export interface ClubState extends EntityState<Player> {
-  stadium: Stadium;
+  stadiums: Stadium[];
   selectedPlayer: number;
 }
 
@@ -21,14 +21,15 @@ const adapter = createEntityAdapter<Player>();
 
 export const initialState: ClubState = adapter.getInitialState({
   selectedPlayer: 0,
-  stadium: {
-    id: 0,
-    city: '',
-    image: '',
-    name: '',
-    attendance: 0,
-    description: '',
-  },
+  stadiums: [],
+  // stadium: {
+  //   id: 0,
+  //   city: '',
+  //   image: '',
+  //   name: '',
+  //   attendance: 0,
+  //   description: '',
+  // },
 });
 
 export const playerReducer = createReducer(
@@ -48,7 +49,10 @@ export const playerReducer = createReducer(
     if (!targetPlayer) {
       return state;
     } else {
-      return adapter.setOne({ ...targetPlayer, dislikes: player.dislikes }, state);
+      return adapter.setOne(
+        { ...targetPlayer, dislikes: player.dislikes },
+        state
+      );
     }
 
     // ({
@@ -68,10 +72,13 @@ export const playerReducer = createReducer(
     ...state,
     selectedPlayer: playerId,
   })),
-  on(Actions.loadStadiumSuccessFromEffects, (state, { stadium }) => ({
-    ...state,
-    stadium: stadium,
-  })),
+  on(Actions.loadStadiumSuccessFromEffects, (state, { stadium }) => {
+    return { ...state, stadiums: stadium };
+  }),
+  // ({
+  //   ...state,
+  //   stadiums: stadium,
+  // })),
   on(Actions.addNewPlayerSuccessful, (state, { player }) => {
     return adapter.addOne(player, state);
   }),

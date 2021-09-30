@@ -22,9 +22,9 @@ export const selectSelectedPlayerId = createSelector(
     (state) => state.selectedPlayer
 )
 
-export const selectStadium = createSelector(
+export const selectStadiums = createSelector(
     selectPlayersFeature,
-    (state) => state.stadium
+    (state) => state.stadiums
 )
 
 export const selectSelectedPlayer = createSelector(

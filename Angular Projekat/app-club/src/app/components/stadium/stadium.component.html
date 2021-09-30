@@ -1,1 +1,5 @@
-<app-club-details [stadium]="MyStadium | async"></app-club-details>
+<!-- <app-club-details [stadium]="MyStadium | async"></app-club-details> -->
+
+<ul *ngFor="let stadium of MyStadiums | async">
+    <app-club-details [stadium]="stadium" ></app-club-details>
+</ul>

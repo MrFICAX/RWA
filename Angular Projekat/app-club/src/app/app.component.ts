@@ -5,7 +5,7 @@ import { Player } from './models/player';
 import { Stadium } from './models/stadium';
 import { PlayersService } from './services/players.service';
 import { AppState } from './store/app-state';
-import { selectSelectedPlayer, selectStadium } from './store/players.selectors';
+import { selectSelectedPlayer } from './store/players.selectors';
 import * as Actions from 'src/app/store/players.actions';
 import { AuthService } from '@auth0/auth0-angular';
 

@@ -14,8 +14,8 @@ export class StadiumService {
         return await this.stadiumRepository.save(stadium);
     }
     
-    async  readAll(): Promise<Stadium> {
-        return await this.stadiumRepository.findOneOrFail();
+    async  readAll(): Promise<Stadium[]> {
+        return await this.stadiumRepository.find();
     }
 
     async update(stadium: Stadium): Promise<UpdateResult> {

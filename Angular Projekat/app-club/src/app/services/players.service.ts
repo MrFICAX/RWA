@@ -42,7 +42,7 @@ export class PlayersService {
   }
 
   public readStadiums() {
-    return this.httpClient.get<Stadium>(`${environment.apiUrl}/stadiums`);
+    return this.httpClient.get<Stadium[]>(`${environment.apiUrl}/stadiums`);
   }
 
   public getStadium() {

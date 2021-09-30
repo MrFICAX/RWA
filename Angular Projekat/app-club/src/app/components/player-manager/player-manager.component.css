@@ -40,10 +40,12 @@ form{
 .desno * {
     width: 80%;
     margin:10px;
+    font-size: 25px;
 }
 
 button{
-    margin:10px
+    margin:10px;
+    font-size: 25px;
 }
 
 mat-card-actions{
